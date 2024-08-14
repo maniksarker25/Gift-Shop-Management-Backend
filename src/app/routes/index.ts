@@ -3,6 +3,7 @@ import { authRoutes } from '../modules/auth/auth.routes';
 import { giftRoutes } from '../modules/gift/gift.routes';
 import { saleRoutes } from '../modules/sale/sale.routes';
 import { couponRoutes } from '../modules/coupon/coupon.routes';
+import { metaRoutes } from '../modules/meta/meta.routes';
 
 const router = express.Router();
 
@@ -22,6 +23,10 @@ const moduleRoutes = [
   {
     path: '/coupons',
     router: couponRoutes,
+  },
+  {
+    path: '/meta',
+    router: metaRoutes,
   },
 ];
 
