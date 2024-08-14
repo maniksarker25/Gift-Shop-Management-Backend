@@ -81,12 +81,22 @@ const getSellerMetaData = async (user: JwtPayload) => {
   const totalThemes = themes[0].uniqueThemes;
   const myTotalSale = await Sale.find({ seller: user._id }).countDocuments();
   const categoryBarChartData = await getCategoryBarChartData();
+  const themePieChartData = await Gift.aggregate([
+    {
+      $group: {
+        _id: '$theme',
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
   return {
     totalProduct,
     totalCategories,
     totalThemes,
     myTotalSale,
     categoryBarChartData,
+    themePieChartData,
   };
 };
 
