@@ -37,6 +37,7 @@ const getManagerMetaData = async () => {
       },
     },
   ]);
+  // total revenue
   const totalRevenue = revenue[0].totalRevenue;
   const categoryBarChartData = await Gift.aggregate([
     {
